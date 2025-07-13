@@ -1,7 +1,4 @@
-// Proyecto: Portal de cliente para documentación hipotecaria
-// Página de login con estilo moderno tipo ING (Next.js + TailwindCSS)
 
-// --- pages/index.tsx ---
 import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
