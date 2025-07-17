@@ -1,7 +1,7 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabaseClient';
 import { useState } from 'react';
 
 export default function LoginPage() {
@@ -16,13 +16,12 @@ export default function LoginPage() {
     const email = (form.elements.namedItem('email') as HTMLInputElement)?.value;
     const password = (form.elements.namedItem('password') as HTMLInputElement)?.value;
 
-    const res = await signIn('credentials', {
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
-      redirect: false,
     });
 
-    if (res?.error) {
+    if (error) {
       setError('Credencials incorrectes.');
     } else {
       router.push('/upload');
