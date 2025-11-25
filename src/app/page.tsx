@@ -1,6 +1,6 @@
 'use client';
  //antic
-
+//quick login page for user authentication
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
